@@ -136,7 +136,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-8"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-12"
                 >
                   📥 Download Resume
                 </a>
@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col space-y-4 mt-14 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col space-y-4 mt-12 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -193,8 +193,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Social Links (Sitting directly under CONTACT link) */}
-              <div className="flex items-center justify-center gap-5 pt-8 select-none">
+              {/* Social Links (Sitting directly under CONTACT link with mt-8) */}
+              <div className="flex items-center justify-center gap-5 mt-8 select-none">
                 <a 
                   href="https://github.com/Ganesh5710" 
                   target="_blank" 
