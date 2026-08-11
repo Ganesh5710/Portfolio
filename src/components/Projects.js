@@ -43,8 +43,8 @@ const Projects = () => {
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
-      {/* Projects List */}
-      <div className="space-y-6 group/list">
+      {/* Projects List with spacious gaps */}
+      <div className="space-y-12 md:space-y-16 group/list">
         {PROJECTS_DATA.map((proj, index) => (
           <article
             key={index}
@@ -54,23 +54,23 @@ const Projects = () => {
                 : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
             }`}
           >
-            {/* Left Thumbnail (3 cols) */}
-            <div className="md:col-span-3 shrink-0 select-none">
-              <div className="aspect-[16/9] w-full max-w-[150px] md:max-w-none rounded-lg overflow-hidden border border-slate-750/20 dark:border-slate-800/50 bg-black/10 dark:bg-white/5 relative">
+            {/* Left Thumbnail (4 cols - larger size) */}
+            <div className="md:col-span-4 shrink-0 select-none">
+              <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative">
                 <Image 
                   src={proj.image} 
                   alt={`${proj.title} preview screenshot`}
-                  width={200}
-                  height={112}
+                  width={600}
+                  height={375}
+                  quality={95}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
               </div>
             </div>
 
-            {/* Right Details (9 cols) */}
-            <div className="md:col-span-9 space-y-3">
+            {/* Right Details (8 cols) */}
+            <div className="md:col-span-8 space-y-3">
               <div>
                 <a
                   href={proj.github}
@@ -88,12 +88,12 @@ const Projects = () => {
                 </a>
               </div>
 
-              {/* Description - Increased to text-sm */}
-              <p className="text-sm text-gray-655 dark:text-slate-400 font-sans font-light leading-relaxed">
+              {/* Description */}
+              <p className="text-sm text-slate-400 font-sans font-light leading-relaxed">
                 {proj.description}
               </p>
 
-              {/* Metrics dashboard - text-xs */}
+              {/* Metrics dashboard */}
               <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2.5 select-none font-mono text-[10px]">
                 {proj.metrics.map((metric, mi) => (
                   <div key={mi} className="space-y-0.5">
@@ -105,7 +105,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Stack Pills (text-xs) */}
+              {/* Stack Pills */}
               <div className="flex flex-wrap gap-1.5 pt-2 select-none">
                 {proj.tech.map((tech, i) => (
                   <span
