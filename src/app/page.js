@@ -239,17 +239,17 @@ export default function Home() {
            * RIGHT COLUMN (Full-Screen Sections - spacious and centered)
            * On mobile: sections flow naturally, no forced min-height
            * ==================================================== */}
-          <main className="lg:w-[52%] flex flex-col relative z-20">
-            <section id="about" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
+          <main className="lg:w-[52%] flex flex-col gap-16 sm:gap-20 lg:gap-24 relative z-20 pt-4 sm:pt-6 lg:pt-20 pb-0">
+            <section id="about" className="scroll-mt-16 lg:scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
+            <section id="experience" className="scroll-mt-16 lg:scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
+            <section id="projects" className="scroll-mt-16 lg:scroll-mt-24">
               <Projects />
             </section>
-            <section id="contact" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
+            <section id="contact" className="scroll-mt-16 lg:scroll-mt-24">
               <Contact />
             </section>
             <Footer />
