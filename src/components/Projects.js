@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const PROJECTS_DATA = [
@@ -76,7 +76,7 @@ const Projects = () => {
 
               {/* Right Details */}
               <div className="md:col-span-8 space-y-2 sm:space-y-3">
-                <div className="flex items-start sm:items-center justify-between gap-2">
+                <div>
                   <a
                     href={proj.demo}
                     target="_blank"
@@ -90,17 +90,6 @@ const Projects = () => {
                       size={16} 
                       className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
                     />
-                  </a>
-
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-300 transition-colors p-2.5 sm:p-1 shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center"
-                    aria-label={`View ${proj.title} source code on GitHub`}
-                    title="View Source Code"
-                  >
-                    <Github size={18} />
                   </a>
                 </div>
 

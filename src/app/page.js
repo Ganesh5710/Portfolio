@@ -86,7 +86,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen font-sans antialiased transition-colors duration-250 overflow-x-hidden ${
+    <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
       isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-650'
     }`}>
       {/* Brittany Chiang style: Subtle, rich blue-teal radial spotlight */}
@@ -240,16 +240,16 @@ export default function Home() {
            * On mobile: sections flow naturally, no forced min-height
            * ==================================================== */}
           <main className="lg:w-[52%] flex flex-col relative z-20">
-            <section id="about" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
+            <section id="about" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
+            <section id="experience" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
+            <section id="projects" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
               <Projects />
             </section>
-            <section id="contact" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
+            <section id="contact" className="py-10 sm:py-14 lg:py-20 scroll-mt-16 lg:scroll-mt-24">
               <Contact />
             </section>
             <Footer />
