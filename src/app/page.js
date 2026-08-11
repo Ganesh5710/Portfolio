@@ -106,53 +106,40 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           
           {/* ====================================================
-           * LEFT COLUMN (Sticky & Vertically Centered on Desktop)
+           * LEFT COLUMN (STICKY SIDEBAR)
            * ==================================================== */}
-          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[45%] lg:flex-col lg:justify-center select-none shrink-0 z-40">
-            {/* Grouped and centered container */}
-            <div className="flex flex-col justify-center py-6 lg:py-0 space-y-6 lg:space-y-8">
-              
-              {/* Header system title & theme toggle */}
-              <div className="flex items-center justify-between lg:justify-start lg:gap-4 select-none">
-                <span className="font-mono text-sm font-bold text-[var(--color-accent-teal)]">
+          <header className="lg:w-[45%] lg:h-screen lg:sticky lg:top-0 py-12 lg:py-24 px-8 flex flex-col justify-between select-none shrink-0 z-40">
+            <div>
+              {/* Brand Header & Name (Centered Horizontally) */}
+              <div className="text-center mb-6">
+                <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider text-center block mb-2">
                   GB_SYSTEM_V3.0
                 </span>
                 
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-lg border border-slate-700/20 dark:border-slate-800/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all outline-none focus:ring-2 focus:ring-[var(--color-accent-teal)]"
-                  aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-                >
-                  {isDark ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} className="text-slate-700" />}
-                </button>
-              </div>
-
-              {/* Bio Details (Increased font size for body matching Brittany Chiang's layout) */}
-              <div className="space-y-4">
-                <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>
-                  Ganesh Bathula
+                <h1 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight text-center mb-3 flex items-center justify-center gap-3">
+                  <span>⚡</span> Ganesh Bathula <span>🚀</span>
                 </h1>
-                <h2 className={`text-xl sm:text-2xl font-semibold tracking-tight ${isDark ? 'text-slate-200' : 'text-slate-850'}`}>
+                
+                <h2 className="text-xl font-bold text-slate-200 text-center mb-4">
                   Full Stack & AI Developer
                 </h2>
-                <p className="text-base font-light leading-relaxed max-w-sm text-gray-500 dark:text-slate-400">
-                  I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
+                
+                <p className="text-slate-400 text-sm leading-relaxed text-center max-w-sm mx-auto mb-6">
+                  I build real-time web applications 🚀, proctoring platforms 🛡️, and autonomous AI data pipelines 🤖.
                 </p>
-              </div>
 
-              {/* Resume download */}
-              <div className="pt-1">
+                {/* Download Resume Button (Centered) */}
                 <a
                   href="/resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] bg-transparent hover:bg-[var(--color-accent-teal-hover)] font-mono text-sm font-bold transition-all focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)] mx-auto mb-10 w-fit"
                 >
-                  <Download size={15} /> Download Resume
+                  <span>📥</span> Download Resume
                 </a>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest pt-2 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-8 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -162,8 +149,8 @@ export default function Home() {
                       onClick={(e) => handleAnchorClick(e, item.id)}
                       className={`cursor-pointer transition-colors duration-200 py-1 outline-none ${
                         isActive 
-                          ? 'text-[var(--color-accent-teal)] font-bold' 
-                          : 'text-gray-500 hover:text-slate-900 dark:hover:text-slate-250'
+                          ? 'text-teal-300 font-bold' 
+                          : 'text-slate-500 hover:text-slate-200'
                       }`}
                     >
                       {item.label}
@@ -172,8 +159,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Desktop Navigation Links (Increased font size to match reference site) */}
-              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-4 select-none">
+              {/* Vertical Scroll-Spy Navigation */}
+              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-2 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -181,19 +168,19 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-3.5 cursor-pointer outline-none"
+                      className="group flex items-center py-3 cursor-pointer outline-none"
                     >
-                      {/* Line expands and highlights in Teal on active state */}
+                      {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
                         isActive 
-                          ? 'w-20 bg-[var(--color-accent-teal)]' 
-                          : 'w-10 bg-slate-400 dark:bg-slate-650 group-hover:w-20 group-hover:bg-[var(--color-accent-teal)] group-focus-visible:w-20 group-focus-visible:bg-[var(--color-accent-teal)]'
+                          ? 'w-16 bg-teal-400' 
+                          : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-teal-400'
                       }`} />
                       
                       <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                         isActive 
-                          ? 'text-[var(--color-accent-teal)] font-extrabold' 
-                          : 'text-gray-550 dark:text-slate-500 group-hover:text-[var(--color-accent-teal)] group-focus-visible:text-[var(--color-accent-teal)]'
+                          ? 'text-teal-300 font-extrabold' 
+                          : 'text-slate-500 group-hover:text-slate-200'
                       }`}>
                         {item.label}
                       </span>
@@ -201,35 +188,35 @@ export default function Home() {
                   );
                 })}
               </nav>
+            </div>
 
-              {/* Social handles */}
-              <div className="pt-4 flex items-center gap-6 select-none">
-                <a 
-                  href="https://github.com/Ganesh5710" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                  aria-label="Visit Ganesh's GitHub profile"
-                >
-                  <Github size={22} />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/ganeshb57" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-550 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                  aria-label="Visit Ganesh's LinkedIn profile"
-                >
-                  <Linkedin size={22} />
-                </a>
-                <a 
-                  href="mailto:ganeshbathula20@gmail.com"
-                  className="text-gray-550 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                  aria-label="Send email to Ganesh"
-                >
-                  <Mail size={22} />
-                </a>
-              </div>
+            {/* Social Links Footer (Bottom Left) */}
+            <div className="flex items-center gap-5 pt-6 lg:pt-0 select-none">
+              <a 
+                href="https://github.com/Ganesh5710" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                aria-label="Visit Ganesh's GitHub profile"
+              >
+                <Github size={20} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/ganeshb57" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                aria-label="Visit Ganesh's LinkedIn profile"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a 
+                href="mailto:ganeshbathula20@gmail.com"
+                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                aria-label="Send email to Ganesh"
+              >
+                <Mail size={20} />
+              </a>
             </div>
           </header>
 
