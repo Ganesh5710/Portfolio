@@ -111,7 +111,7 @@ export default function Home() {
           <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 px-6 lg:px-12 flex flex-col justify-center items-center max-w-xl select-none shrink-0 z-40 relative">
             <div className="w-full flex flex-col items-center text-center my-auto pt-4">
               {/* 1. Header Info (Tag, Title, Role, Description) */}
-              <div className="flex flex-col items-center text-center w-full pb-4">
+              <div className="flex flex-col items-center text-center w-full">
                 <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider mb-3">
                   GB_SYSTEM_V3.0
                 </span>
@@ -129,8 +129,11 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* 2. Download Resume Button Wrapper (Explicit vertical padding) */}
-              <div className="w-full flex justify-center py-6 select-none">
+              {/* Explicit 24px vertical spacer above Download Resume */}
+              <div style={{ height: '24px' }}></div>
+
+              {/* 2. Download Resume Button Wrapper */}
+              <div className="w-full flex justify-center select-none">
                 <a
                   href="/resume.pdf"
                   target="_blank"
@@ -142,8 +145,11 @@ export default function Home() {
                 </a>
               </div>
 
+              {/* Explicit 32px vertical spacer between Download Resume and Navigation */}
+              <div style={{ height: '32px' }}></div>
+
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest py-4 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -163,9 +169,9 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* 3. Vertical Navigation Wrapper (Explicit padding-top and space-y-6) */}
-              <div className="w-full flex justify-center pt-8 pb-4">
-                <nav className="hidden lg:flex flex-col space-y-6 font-mono text-sm select-none w-fit mx-auto">
+              {/* 3. Vertical Navigation Wrapper */}
+              <div className="w-full flex justify-center">
+                <nav className="hidden lg:flex flex-col font-mono text-sm select-none w-fit mx-auto">
                   {NAV_ITEMS.map((item) => {
                     const isActive = activeSection === item.id;
                     return (
@@ -173,6 +179,7 @@ export default function Home() {
                         key={item.id}
                         href={`#${item.id}`}
                         onClick={(e) => handleAnchorClick(e, item.id)}
+                        style={{ padding: '12px 0' }}
                         className="group flex items-center cursor-pointer outline-none"
                       >
                         {/* Horizontal line indicator before each section title */}
@@ -195,8 +202,11 @@ export default function Home() {
                 </nav>
               </div>
 
-              {/* 4. Social Links Wrapper (Explicit top padding) */}
-              <div className="w-full flex justify-center pt-8 select-none">
+              {/* Explicit 32px vertical spacer between Navigation and Social Links */}
+              <div style={{ height: '32px' }}></div>
+
+              {/* 4. Social Links Wrapper */}
+              <div className="w-full flex justify-center select-none">
                 <div className="flex items-center gap-5">
                   <a 
                     href="https://github.com/Ganesh5710" 
