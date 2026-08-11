@@ -130,7 +130,7 @@ export default function Home() {
                 </p>
 
                 {/* Download Resume Button Block */}
-                <div className="mb-10 select-none">
+                <div className="mb-8 select-none">
                   <a
                     href="/resume.pdf"
                     target="_blank"
@@ -144,7 +144,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-6 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-6 mb-6 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -165,7 +165,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col gap-5 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col gap-5 mt-8 lg:mt-10 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -195,7 +195,7 @@ export default function Home() {
               </nav>
 
               {/* Social Links Row */}
-              <div className="flex items-center justify-center gap-5 mt-12 select-none">
+              <div className="flex items-center justify-center gap-5 mt-10 lg:mt-12 select-none">
                 <a 
                   href="https://github.com/Ganesh5710" 
                   target="_blank" 
