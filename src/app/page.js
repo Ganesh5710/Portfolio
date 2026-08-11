@@ -143,7 +143,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-12 mb-6 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-12 mb-8 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col space-y-4 mt-12 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col mt-14 space-y-1 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -172,7 +172,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-1 cursor-pointer outline-none"
+                      className="group flex items-center py-3.5 cursor-pointer outline-none"
                     >
                       {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
@@ -193,8 +193,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Social Links (Sitting directly under CONTACT link with mt-8) */}
-              <div className="flex items-center justify-center gap-5 mt-8 select-none">
+              {/* Social Links (Sitting with generous mt-14 under CONTACT link) */}
+              <div className="flex items-center justify-center gap-5 mt-14 select-none">
                 <a 
                   href="https://github.com/Ganesh5710" 
                   target="_blank" 
