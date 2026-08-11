@@ -192,35 +192,35 @@ export default function Home() {
                   );
                 })}
               </nav>
-            </div>
 
-            {/* Social Links Footer (Pinned to bottom of sticky sidebar) */}
-            <div className="lg:absolute lg:bottom-10 lg:left-12 flex items-center justify-center lg:justify-start gap-5 pt-6 lg:pt-0 select-none">
-              <a 
-                href="https://github.com/Ganesh5710" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
-                aria-label="Visit Ganesh's GitHub profile"
-              >
-                <Github size={20} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/ganeshb57" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
-                aria-label="Visit Ganesh's LinkedIn profile"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="mailto:ganeshbathula20@gmail.com"
-                className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
-                aria-label="Send email to Ganesh"
-              >
-                <Mail size={20} />
-              </a>
+              {/* Social Links (Sitting directly under CONTACT link) */}
+              <div className="flex items-center justify-center gap-5 pt-8 select-none">
+                <a 
+                  href="https://github.com/Ganesh5710" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                  aria-label="Visit Ganesh's GitHub profile"
+                >
+                  <Github size={20} />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/ganeshb57" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                  aria-label="Visit Ganesh's LinkedIn profile"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a 
+                  href="mailto:ganeshbathula20@gmail.com"
+                  className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                  aria-label="Send email to Ganesh"
+                >
+                  <Mail size={20} />
+                </a>
+              </div>
             </div>
           </header>
 
