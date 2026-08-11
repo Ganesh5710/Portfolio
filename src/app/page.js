@@ -236,20 +236,20 @@ export default function Home() {
           </header>
 
           {/* ====================================================
-           * RIGHT COLUMN (Full-Screen Sections - spacious and centered)
-           * On mobile: sections flow naturally, no forced min-height
+           * RIGHT COLUMN (Continuous Scrollable Sections)
+           * Rendered together in one continuous page with large outer gaps.
            * ==================================================== */}
-          <main className="lg:w-[52%] flex flex-col gap-16 sm:gap-20 lg:gap-24 relative z-20 pt-4 sm:pt-6 lg:pt-20 pb-0">
-            <section id="about" className="scroll-mt-16 lg:scroll-mt-24">
+          <main className="lg:w-[52%] flex flex-col gap-24 sm:gap-28 lg:gap-32 relative z-20 pt-4 sm:pt-6 lg:pt-20 pb-0">
+            <section id="about" className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="scroll-mt-16 lg:scroll-mt-24">
+            <section id="experience" className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="scroll-mt-16 lg:scroll-mt-24">
+            <section id="projects" className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Projects />
             </section>
-            <section id="contact" className="scroll-mt-16 lg:scroll-mt-24">
+            <section id="contact" className="min-h-[70vh] lg:min-h-[85vh] flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Contact />
             </section>
             <Footer />

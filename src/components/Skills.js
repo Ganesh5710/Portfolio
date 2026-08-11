@@ -31,7 +31,7 @@ const Skills = () => {
   return (
     <div className="space-y-6">
       {/* Section Title - Increased Font Size */}
-      <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
+      <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none lg:hidden">
         <span>04. SKILLS</span>
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>

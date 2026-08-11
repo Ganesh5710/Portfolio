@@ -9,7 +9,7 @@ const Contact = () => {
     <div className="space-y-4 sm:space-y-6">
       {/* Section Title - Hidden on Desktop */}
       <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none lg:hidden">
-        <span>04. CONTACT</span>
+        <span>06. CONTACT</span>
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
