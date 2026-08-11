@@ -43,85 +43,86 @@ const Projects = () => {
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
-      {/* Projects List with spacious gaps */}
-      <div className="space-y-12 md:space-y-16 group/list">
+      {/* Projects List with Container Gap */}
+      <div className="flex flex-col gap-12 lg:gap-16 group/list">
         {PROJECTS_DATA.map((proj, index) => (
-          <article
-            key={index}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
-              isDark 
-                ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
-                : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
-            }`}
-          >
-            {/* Left Thumbnail (4 cols - larger size) */}
-            <div className="md:col-span-4 shrink-0 select-none">
-              <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative">
-                <Image 
-                  src={proj.image} 
-                  alt={`${proj.title} preview screenshot`}
-                  width={600}
-                  height={375}
-                  quality={95}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105"
-                  priority={index === 0}
-                />
-              </div>
-            </div>
-
-            {/* Right Details (8 cols) */}
-            <div className="md:col-span-8 space-y-3">
-              <div>
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
-                    isDark ? 'text-slate-200' : 'text-slate-900'
-                  }`}
-                >
-                  <span>{proj.title}</span>
-                  <ArrowUpRight 
-                    size={16} 
-                    className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
+          <div key={index} className="w-full">
+            <article
+              className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
+                isDark 
+                  ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
+                  : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
+              }`}
+            >
+              {/* Left Thumbnail */}
+              <div className="md:col-span-4 shrink-0 select-none">
+                <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative">
+                  <Image 
+                    src={proj.image} 
+                    alt={`${proj.title} preview screenshot`}
+                    width={600}
+                    height={375}
+                    quality={95}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105"
+                    priority={index === 0}
                   />
-                </a>
+                </div>
               </div>
 
-              {/* Description */}
-              <p className="text-sm text-slate-400 font-sans font-light leading-relaxed">
-                {proj.description}
-              </p>
-
-              {/* Metrics dashboard */}
-              <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2.5 select-none font-mono text-[10px]">
-                {proj.metrics.map((metric, mi) => (
-                  <div key={mi} className="space-y-0.5">
-                    <div className="text-gray-500 truncate">{metric.label}</div>
-                    <div className="font-bold text-[var(--color-accent-teal)]">
-                      {metric.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Stack Pills */}
-              <div className="flex flex-wrap gap-1.5 pt-2 select-none">
-                {proj.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className={`px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
-                      isDark 
-                        ? 'bg-teal-400/10 text-teal-300 border-transparent' 
-                        : 'bg-indigo-400/10 text-indigo-800 border-transparent'
+              {/* Right Details */}
+              <div className="md:col-span-8 space-y-3">
+                <div>
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
+                      isDark ? 'text-slate-200' : 'text-slate-900'
                     }`}
                   >
-                    {tech}
-                  </span>
-                ))}
+                    <span>{proj.title}</span>
+                    <ArrowUpRight 
+                      size={16} 
+                      className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
+                    />
+                  </a>
+                </div>
+
+                {/* Description */}
+                <p className="text-sm text-slate-400 font-sans font-light leading-relaxed">
+                  {proj.description}
+                </p>
+
+                {/* Metrics dashboard */}
+                <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2.5 select-none font-mono text-[10px]">
+                  {proj.metrics.map((metric, mi) => (
+                    <div key={mi} className="space-y-0.5">
+                      <div className="text-gray-500 truncate">{metric.label}</div>
+                      <div className="font-bold text-[var(--color-accent-teal)]">
+                        {metric.value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stack Pills */}
+                <div className="flex flex-wrap gap-1.5 pt-2 select-none">
+                  {proj.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className={`px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
+                        isDark 
+                          ? 'bg-teal-400/10 text-teal-300 border-transparent' 
+                          : 'bg-indigo-400/10 text-indigo-800 border-transparent'
+                      }`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         ))}
       </div>
     </div>
