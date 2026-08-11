@@ -106,17 +106,17 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           
           {/* ====================================================
-           * LEFT COLUMN (STICKY SIDEBAR)
+           * LEFT COLUMN (STICKY SIDEBAR - VERTICALLY CENTERED)
            * ==================================================== */}
-          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 lg:py-24 px-6 lg:px-12 flex flex-col justify-between max-w-xl select-none shrink-0 z-40">
-            <div>
+          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 lg:py-16 px-6 lg:px-12 flex flex-col justify-between max-w-xl select-none shrink-0 z-40">
+            <div className="my-auto w-full flex flex-col items-center text-center">
               {/* Header System Tag, Title, Role & Description */}
-              <div className="flex flex-col items-start text-left">
+              <div className="flex flex-col items-center text-center w-full">
                 <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider mb-3">
                   GB_SYSTEM_V3.0
                 </span>
                 
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2 flex items-center gap-3">
+                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2 flex items-center justify-center gap-3">
                   <span className="text-2xl sm:text-3xl">⚡</span>
                   <span>Ganesh Bathula</span>
                   <span className="text-2xl sm:text-3xl">🚀</span>
@@ -126,7 +126,7 @@ export default function Home() {
                   Full Stack & AI Developer
                 </h2>
                 
-                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
+                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto mb-6">
                   I build real-time web applications 🚀, proctoring platforms 🛡️, and autonomous AI data pipelines 🤖.
                 </p>
 
@@ -136,14 +136,14 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-8"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-8"
                 >
                   📥 Download Resume
                 </a>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-8 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-6 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-2 select-none">
+              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-2 select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -172,7 +172,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-3 cursor-pointer outline-none"
+                      className="group flex items-center py-2.5 cursor-pointer outline-none"
                     >
                       {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
@@ -194,8 +194,8 @@ export default function Home() {
               </nav>
             </div>
 
-            {/* Social Links Footer (Bottom Left) */}
-            <div className="flex items-center gap-5 pt-6 lg:pt-0 select-none">
+            {/* Social Links Footer (Bottom) */}
+            <div className="flex items-center justify-center lg:justify-start gap-5 pt-6 select-none">
               <a 
                 href="https://github.com/Ganesh5710" 
                 target="_blank" 
