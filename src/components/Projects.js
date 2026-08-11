@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const PROJECTS_DATA = [
@@ -10,7 +10,7 @@ const PROJECTS_DATA = [
     description: "Engineered a high-concurrency online examination portal featuring real-time proctoring telemetry. Integrates WebSockets to actively monitor webcam gaze coordinates and tab focus loss events. Built a high-speed client-side ingestion pipeline (using SheetJS) that parses 2,000+ quiz questions in under 2 seconds, alongside database triggers that compile and evaluate grading metrics in under 15ms to eliminate network latency.",
     tech: ["React", "Node.js", "PostgreSQL", "WebSockets", "Tailwind CSS"],
     github: "https://github.com/Ganesh5710/Skillbrix",
-    demo: "#",
+    demo: "https://skillbrix-exam.vercel.app/",
     metrics: [
       { label: "LATENCY", value: "~20ms" },
       { label: "PARSER RATE", value: "2,000+ rows/s" },
@@ -23,7 +23,7 @@ const PROJECTS_DATA = [
     description: "Developed an autonomous conversational analyst powered by LangChain and local Ollama (Llama 3) models. Implemented a robust 4-stage state-machine dialogue manager that handles schema mapping, secure SQL query generation, dry-run validations, and Streamlit visualization outputs. Supports secure offline CSV processing for datasets up to 50MB, generating dynamic insights and data charts via natural language queries.",
     tech: ["Python", "LangChain", "Ollama", "Streamlit", "Pandas"],
     github: "https://github.com/Ganesh5710/StateBotPro",
-    demo: "#",
+    demo: "https://statbot-pro.streamlit.app/",
     metrics: [
       { label: "LLM RESPONSE", value: "~1.2s" },
       { label: "CONVERSATION STATES", value: "4 stages" },
@@ -54,9 +54,14 @@ const Projects = () => {
                   : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
               }`}
             >
-              {/* Left Thumbnail */}
+              {/* Left Thumbnail (Clickable to Live Demo) */}
               <div className="md:col-span-4 shrink-0 select-none">
-                <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative">
+                <a 
+                  href={proj.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative"
+                >
                   <Image 
                     src={proj.image} 
                     alt={`${proj.title} preview screenshot`}
@@ -66,14 +71,14 @@ const Projects = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105"
                     priority={index === 0}
                   />
-                </div>
+                </a>
               </div>
 
               {/* Right Details */}
               <div className="md:col-span-8 space-y-3">
-                <div>
+                <div className="flex items-center justify-between gap-2">
                   <a
-                    href={proj.github}
+                    href={proj.demo}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
@@ -85,6 +90,17 @@ const Projects = () => {
                       size={16} 
                       className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
                     />
+                  </a>
+
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-teal-300 transition-colors p-1 shrink-0"
+                    aria-label={`View ${proj.title} source code on GitHub`}
+                    title="View Source Code"
+                  >
+                    <Github size={18} />
                   </a>
                 </div>
 
