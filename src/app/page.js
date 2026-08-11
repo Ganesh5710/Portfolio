@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col mt-14 space-y-1 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col mt-14 space-y-5 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -172,7 +172,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-3.5 cursor-pointer outline-none"
+                      className="group flex items-center py-1 cursor-pointer outline-none"
                     >
                       {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
