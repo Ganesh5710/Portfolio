@@ -106,10 +106,10 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           
           {/* ====================================================
-           * LEFT COLUMN (STICKY SIDEBAR - VERTICALLY CENTERED & PUSHED DOWN)
+           * LEFT COLUMN (STICKY SIDEBAR - TRULY VERTICALLY CENTERED)
            * ==================================================== */}
-          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 pt-16 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 flex flex-col justify-between max-w-xl select-none shrink-0 z-40">
-            <div className="my-auto pt-6 lg:pt-12 w-full flex flex-col items-center text-center">
+          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 px-6 lg:px-12 flex flex-col justify-center items-center max-w-xl select-none shrink-0 z-40 relative">
+            <div className="w-full flex flex-col items-center text-center my-auto pt-8">
               {/* Header System Tag, Title, Role & Description */}
               <div className="flex flex-col items-center text-center w-full">
                 <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider mb-3">
@@ -194,8 +194,8 @@ export default function Home() {
               </nav>
             </div>
 
-            {/* Social Links Footer (Bottom) */}
-            <div className="flex items-center justify-center lg:justify-start gap-5 pt-6 select-none">
+            {/* Social Links Footer (Pinned to bottom of sticky sidebar on desktop) */}
+            <div className="lg:absolute lg:bottom-10 lg:left-12 flex items-center justify-center lg:justify-start gap-5 pt-6 lg:pt-0 select-none">
               <a 
                 href="https://github.com/Ganesh5710" 
                 target="_blank" 
