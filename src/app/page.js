@@ -138,7 +138,7 @@ export default function Home() {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  download
+                  download="Ganesh_Bathula_Resume.pdf"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)]"
                 >
                   Download Resume
