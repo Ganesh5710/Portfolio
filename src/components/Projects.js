@@ -7,7 +7,7 @@ const PROJECTS_DATA = [
   {
     title: "Skillbrix – Online Examination Portal",
     image: "/images/skillbrix.jpg",
-    description: "Real-time exam engine with WebSocket telemetry proctoring, custom dynamic grading models, and client-side bulk parsing of 2,000+ assessment questions in seconds.",
+    description: "Engineered a high-concurrency online examination portal featuring real-time proctoring telemetry. Integrates WebSockets to actively monitor webcam gaze coordinates and tab focus loss events. Built a high-speed client-side ingestion pipeline (using SheetJS) that parses 2,000+ quiz questions in under 2 seconds, alongside database triggers that compile and evaluate grading metrics in under 15ms to eliminate network latency.",
     tech: ["React", "Node.js", "PostgreSQL", "WebSockets", "Tailwind CSS"],
     github: "https://github.com/Ganesh5710/Skillbrix",
     demo: "#",
@@ -20,7 +20,7 @@ const PROJECTS_DATA = [
   {
     title: "StateBot Pro – Autonomous CSV Data Analyst",
     image: "/images/statebot.jpg",
-    description: "AI chatbot application with state-based conversation management for CSV querying, automated response processing, and session flow management.",
+    description: "Developed an autonomous conversational analyst powered by LangChain and local Ollama (Llama 3) models. Implemented a robust 4-stage state-machine dialogue manager that handles schema mapping, secure SQL query generation, dry-run validations, and Streamlit visualization outputs. Supports secure offline CSV processing for datasets up to 50MB, generating dynamic insights and data charts via natural language queries.",
     tech: ["Python", "LangChain", "Ollama", "Streamlit", "Pandas"],
     github: "https://github.com/Ganesh5710/StateBotPro",
     demo: "#",

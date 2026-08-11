@@ -5,8 +5,6 @@ import { useTheme } from '../context/ThemeContext';
 import About from '../components/About';
 import Experience from '../components/Experience';
 import Projects from '../components/Projects';
-import Skills from '../components/Skills';
-import Education from '../components/Education';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { Github, Linkedin, Mail, Download, ArrowUpRight, Sun, Moon } from 'lucide-react';
@@ -15,8 +13,6 @@ const NAV_ITEMS = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' }
 ];
 
@@ -249,12 +245,6 @@ export default function Home() {
             </section>
             <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Projects />
-            </section>
-            <section id="skills" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
-              <Skills />
-            </section>
-            <section id="education" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
-              <Education />
             </section>
             <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Contact />
