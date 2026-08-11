@@ -36,7 +36,7 @@ const Projects = () => {
   const { isDark } = useTheme();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Section Title - Hidden on Desktop */}
       <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none lg:hidden">
         <span>03. PROJECTS</span>
@@ -44,23 +44,23 @@ const Projects = () => {
       </h2>
 
       {/* Projects List with Container Gap */}
-      <div className="flex flex-col gap-12 lg:gap-16 group/list">
+      <div className="flex flex-col gap-8 sm:gap-10 lg:gap-16 group/list">
         {PROJECTS_DATA.map((proj, index) => (
           <div key={index} className="w-full">
             <article
-              className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
+              className={`grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 p-3 sm:p-4 md:p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
                 isDark 
                   ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
                   : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
               }`}
             >
-              {/* Left Thumbnail (Clickable to Live Demo) */}
+              {/* Thumbnail (Clickable to Live Demo) — full width on mobile */}
               <div className="md:col-span-4 shrink-0 select-none">
                 <a 
                   href={proj.demo} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="block aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative"
+                  className="block aspect-[16/10] w-full rounded-lg sm:rounded-xl overflow-hidden border border-slate-700/40 dark:border-slate-700/60 shadow-md group-hover/item:border-teal-400/50 transition-all relative"
                 >
                   <Image 
                     src={proj.image} 
@@ -75,13 +75,13 @@ const Projects = () => {
               </div>
 
               {/* Right Details */}
-              <div className="md:col-span-8 space-y-3">
-                <div className="flex items-center justify-between gap-2">
+              <div className="md:col-span-8 space-y-2 sm:space-y-3">
+                <div className="flex items-start sm:items-center justify-between gap-2">
                   <a
                     href={proj.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
+                    className={`inline-flex items-baseline gap-1 font-bold text-sm sm:text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link min-h-[44px] items-center ${
                       isDark ? 'text-slate-200' : 'text-slate-900'
                     }`}
                   >
@@ -96,7 +96,7 @@ const Projects = () => {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-300 transition-colors p-1 shrink-0"
+                    className="text-slate-400 hover:text-teal-300 transition-colors p-2.5 sm:p-1 shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center"
                     aria-label={`View ${proj.title} source code on GitHub`}
                     title="View Source Code"
                   >
@@ -110,7 +110,7 @@ const Projects = () => {
                 </p>
 
                 {/* Metrics dashboard */}
-                <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2.5 select-none font-mono text-[10px]">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2 sm:p-2.5 select-none font-mono text-[10px]">
                   {proj.metrics.map((metric, mi) => (
                     <div key={mi} className="space-y-0.5">
                       <div className="text-gray-500 truncate">{metric.label}</div>
@@ -121,12 +121,12 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Stack Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-2 select-none">
+                {/* Stack Pills — wrap gracefully on all screen sizes */}
+                <div className="flex flex-wrap gap-1.5 pt-1 sm:pt-2 select-none">
                   {proj.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className={`px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
+                      className={`px-2.5 sm:px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
                         isDark 
                           ? 'bg-teal-400/10 text-teal-300 border-transparent' 
                           : 'bg-indigo-400/10 text-indigo-800 border-transparent'

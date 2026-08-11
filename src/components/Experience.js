@@ -33,7 +33,7 @@ const Experience = () => {
   const { isDark } = useTheme();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Section Title - Hidden on Desktop */}
       <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none lg:hidden">
         <span>02. EXPERIENCE</span>
@@ -41,29 +41,29 @@ const Experience = () => {
       </h2>
 
       {/* Experience List with Container Gap */}
-      <div className="flex flex-col gap-12 lg:gap-16 group/list">
+      <div className="flex flex-col gap-8 sm:gap-10 lg:gap-16 group/list">
         {EXPERIENCE_DATA.map((exp, index) => (
           <div key={index} className="w-full">
             <div
-              className={`grid grid-cols-1 md:grid-cols-12 gap-4 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
+              className={`grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-4 p-4 sm:p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
                 isDark 
                   ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
                   : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
               }`}
             >
-              {/* Left Column - Dates */}
-              <div className="md:col-span-3 text-xs font-sans text-gray-500 dark:text-slate-500 tracking-wider font-bold pt-1 select-none">
+              {/* Left Column - Dates: stacks above on mobile, side on md+ */}
+              <div className="md:col-span-3 text-xs font-sans text-gray-500 dark:text-slate-500 tracking-wider font-bold pt-0 md:pt-1 select-none mb-1 md:mb-0">
                 {exp.period}
               </div>
 
               {/* Right Column - Work Details */}
-              <div className="md:col-span-9 space-y-3">
+              <div className="md:col-span-9 space-y-2 sm:space-y-3">
                 <div>
                   <a
                     href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
+                    className={`inline-flex items-baseline gap-1 font-bold text-sm sm:text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link min-h-[44px] items-center ${
                       isDark ? 'text-slate-200' : 'text-slate-900'
                     }`}
                   >
@@ -78,18 +78,18 @@ const Experience = () => {
                 </div>
 
                 {/* Bullet Points */}
-                <ul className="list-disc pl-4 space-y-2 text-sm text-gray-650 dark:text-slate-400 font-sans font-light leading-relaxed">
+                <ul className="list-disc pl-4 space-y-1.5 sm:space-y-2 text-sm text-gray-650 dark:text-slate-400 font-sans font-light leading-relaxed">
                   {exp.bullets.map((bullet, i) => (
                     <li key={i}>{bullet}</li>
                   ))}
                 </ul>
 
-                {/* Stack Pills */}
-                <div className="flex flex-wrap gap-1.5 pt-2 select-none">
+                {/* Stack Pills — wrap gracefully */}
+                <div className="flex flex-wrap gap-1.5 pt-1 sm:pt-2 select-none">
                   {exp.stack.map((tech, i) => (
                     <span
                       key={i}
-                      className={`px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
+                      className={`px-2.5 sm:px-3 py-1 rounded-full font-sans text-xs font-semibold border ${
                         isDark 
                           ? 'bg-teal-400/10 text-teal-300 border-transparent' 
                           : 'bg-indigo-400/10 text-indigo-800 border-transparent'

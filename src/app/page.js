@@ -86,7 +86,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
+    <div className={`min-h-screen font-sans antialiased transition-colors duration-250 overflow-x-hidden ${
       isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-650'
     }`}>
       {/* Brittany Chiang style: Subtle, rich blue-teal radial spotlight */}
@@ -102,50 +102,51 @@ export default function Home() {
       )}
 
       {/* Main Grid Wrapper */}
-      <div className="max-w-screen-xl mx-auto px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="max-w-screen-xl mx-auto px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-16 lg:px-24 lg:py-0">
         <div className="lg:flex lg:justify-between lg:gap-4">
           
           {/* ====================================================
            * LEFT COLUMN (STICKY SIDEBAR - VERTICALLY & HORIZONTALLY CENTERED)
+           * On mobile/tablet: flows naturally, not sticky
            * ==================================================== */}
-          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 px-6 lg:px-12 flex flex-col justify-center items-center max-w-xl select-none shrink-0 z-40 relative">
-            <div className="w-full flex flex-col items-center text-center my-auto pt-4">
+          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-8 sm:py-10 lg:py-12 px-2 sm:px-4 lg:px-12 flex flex-col justify-center items-center max-w-xl mx-auto lg:mx-0 select-none shrink-0 z-40 relative">
+            <div className="w-full flex flex-col items-center text-center my-auto pt-2 lg:pt-4">
               {/* 1. Header Info (Title, Role, Description) */}
               <div className="flex flex-col items-center text-center w-full">
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight mb-2">
                   Ganesh Bathula
                 </h1>
                 
-                <h2 className="text-lg sm:text-xl font-medium text-slate-200 mb-4">
+                <h2 className="text-base sm:text-lg lg:text-xl font-medium text-slate-200 mb-3 sm:mb-4">
                   Full Stack Developer
                 </h2>
                 
-                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
+                <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xs sm:max-w-sm mx-auto">
                   I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
                 </p>
               </div>
 
-              {/* Explicit 24px vertical spacer above Download Resume */}
-              <div style={{ height: '24px' }}></div>
+              {/* Spacer above Download Resume — smaller on mobile */}
+              <div className="h-4 sm:h-5 lg:h-6"></div>
 
-              {/* 2. Download Resume Button Wrapper */}
+              {/* 2. Download Resume Button Wrapper — full width on mobile for easy tapping */}
               <div className="w-full flex justify-center select-none">
                 <a
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Ganesh_Bathula_Resume.pdf"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)]"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-4 py-3 sm:py-2 border border-teal-400 text-teal-300 font-mono text-xs sm:text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] min-h-[44px]"
                 >
                   Download Resume
                 </a>
               </div>
 
-              {/* Explicit 32px vertical spacer between Download Resume and Navigation */}
-              <div style={{ height: '32px' }}></div>
+              {/* Spacer between Download Resume and Navigation — smaller on mobile */}
+              <div className="h-5 sm:h-6 lg:h-8"></div>
 
-              {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest select-none">
+              {/* Mobile/Tablet Horizontal Nav Menu */}
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-widest select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -153,7 +154,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className={`cursor-pointer transition-colors duration-200 py-1 outline-none ${
+                      className={`cursor-pointer transition-colors duration-200 px-3 py-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center outline-none rounded ${
                         isActive 
                           ? 'text-teal-300 font-bold' 
                           : 'text-slate-500 hover:text-slate-200'
@@ -165,7 +166,7 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* 3. Vertical Navigation Wrapper */}
+              {/* 3. Desktop Vertical Navigation Wrapper */}
               <div className="w-full flex justify-center">
                 <nav className="hidden lg:flex flex-col font-mono text-sm select-none w-fit mx-auto">
                   {NAV_ITEMS.map((item) => {
@@ -198,36 +199,36 @@ export default function Home() {
                 </nav>
               </div>
 
-              {/* Explicit 32px vertical spacer between Navigation and Social Links */}
-              <div style={{ height: '32px' }}></div>
+              {/* Spacer between Navigation and Social Links — smaller on mobile */}
+              <div className="h-5 sm:h-6 lg:h-8"></div>
 
-              {/* 4. Social Links Wrapper */}
+              {/* 4. Social Links Wrapper — enlarged tap targets */}
               <div className="w-full flex justify-center select-none">
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-4 sm:gap-5">
                   <a 
                     href="https://github.com/Ganesh5710" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-2.5 sm:p-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
                     aria-label="Visit Ganesh's GitHub profile"
                   >
-                    <Github size={20} />
+                    <Github size={22} className="sm:w-5 sm:h-5" />
                   </a>
                   <a 
                     href="https://www.linkedin.com/in/ganeshb57" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-2.5 sm:p-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
                     aria-label="Visit Ganesh's LinkedIn profile"
                   >
-                    <Linkedin size={20} />
+                    <Linkedin size={22} className="sm:w-5 sm:h-5" />
                   </a>
                   <a 
                     href="mailto:ganeshbathula20@gmail.com"
-                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-1"
+                    className="text-slate-400 hover:text-teal-300 transition-colors outline-none focus:ring-2 focus:ring-teal-400 rounded p-2.5 sm:p-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
                     aria-label="Send email to Ganesh"
                   >
-                    <Mail size={20} />
+                    <Mail size={22} className="sm:w-5 sm:h-5" />
                   </a>
                 </div>
               </div>
@@ -236,18 +237,19 @@ export default function Home() {
 
           {/* ====================================================
            * RIGHT COLUMN (Full-Screen Sections - spacious and centered)
+           * On mobile: sections flow naturally, no forced min-height
            * ==================================================== */}
           <main className="lg:w-[52%] flex flex-col relative z-20">
-            <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
+            <section id="about" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
+            <section id="experience" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
+            <section id="projects" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Projects />
             </section>
-            <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
+            <section id="contact" className="py-10 sm:py-14 lg:py-0 lg:min-h-screen flex flex-col justify-center scroll-mt-16 lg:scroll-mt-24">
               <Contact />
             </section>
             <Footer />
