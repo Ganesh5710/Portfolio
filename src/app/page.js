@@ -108,38 +108,42 @@ export default function Home() {
           {/* ====================================================
            * LEFT COLUMN (STICKY SIDEBAR)
            * ==================================================== */}
-          <header className="lg:w-[45%] lg:h-screen lg:sticky lg:top-0 py-12 lg:py-24 px-8 flex flex-col justify-between select-none shrink-0 z-40">
+          <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 lg:py-24 px-6 lg:px-12 flex flex-col justify-between max-w-xl select-none shrink-0 z-40">
             <div>
-              {/* Brand Header & Name (Centered Horizontally) */}
-              <div className="text-center mb-6">
-                <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider text-center block mb-2">
+              {/* Header System Tag, Title, Role & Description */}
+              <div className="flex flex-col items-start text-left">
+                <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider mb-3">
                   GB_SYSTEM_V3.0
                 </span>
                 
-                <h1 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight text-center mb-3 flex items-center justify-center gap-3">
-                  <span>⚡</span> Ganesh Bathula <span>🚀</span>
+                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2 flex items-center gap-3">
+                  <span className="text-2xl sm:text-3xl">⚡</span>
+                  <span>Ganesh Bathula</span>
+                  <span className="text-2xl sm:text-3xl">🚀</span>
                 </h1>
                 
-                <h2 className="text-xl font-bold text-slate-200 text-center mb-4">
+                <h2 className="text-lg sm:text-xl font-medium text-slate-200 mb-4">
                   Full Stack & AI Developer
                 </h2>
                 
-                <p className="text-slate-400 text-sm leading-relaxed text-center max-w-sm mx-auto mb-6">
+                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
                   I build real-time web applications 🚀, proctoring platforms 🛡️, and autonomous AI data pipelines 🤖.
                 </p>
 
-                {/* Download Resume Button (Centered) */}
+                {/* Download Resume Button */}
                 <a
                   href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   download
-                  className="flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.2)] mx-auto mb-10 w-fit"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-8"
                 >
-                  <span>📥</span> Download Resume
+                  📥 Download Resume
                 </a>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-8 select-none">
+              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-8 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
