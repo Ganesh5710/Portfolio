@@ -116,10 +116,8 @@ export default function Home() {
                   GB_SYSTEM_V3.0
                 </span>
                 
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2 flex items-center gap-3">
-                  <span className="text-2xl sm:text-3xl">⚡</span>
-                  <span>Ganesh Bathula</span>
-                  <span className="text-2xl sm:text-3xl">🚀</span>
+                <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2">
+                  Ganesh Bathula
                 </h1>
                 
                 <h2 className="text-lg sm:text-xl font-medium text-slate-200 mb-4">
@@ -127,7 +125,7 @@ export default function Home() {
                 </h2>
                 
                 <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-6">
-                  I build real-time web applications 🚀, proctoring platforms 🛡️, and autonomous AI data pipelines 🤖.
+                  I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
                 </p>
 
                 {/* Download Resume Button */}
