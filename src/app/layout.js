@@ -15,20 +15,6 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: "Ganesh Bathula | Portfolio",
   description: "Personal portfolio of Ganesh Bathula, Full Stack Developer. Building real-time web applications, proctoring platforms, and autonomous AI data pipelines.",
-  openGraph: {
-    type: "website",
-    url: "https://github.com/Ganesh5710",
-    title: "Ganesh Bathula | Portfolio",
-    description: "Full Stack Developer. Explore my projects and professional experience.",
-    images: [
-      {
-        url: "/images/profile.jpg",
-        width: 800,
-        height: 800,
-        alt: "Ganesh Bathula Profile",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({ children }) {
