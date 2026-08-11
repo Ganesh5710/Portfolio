@@ -3,10 +3,10 @@ import React from 'react';
 const About = () => {
   return (
     <div className="space-y-6">
-      {/* Section Title */}
-      <h2 className="text-xs font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 lg:sr-only select-none">
+      {/* Section Title - Visible on Desktop */}
+      <h2 className="text-xs font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
         <span>01. ABOUT</span>
-        <span className="h-px bg-slate-705/40 dark:bg-slate-800/60 flex-grow"></span>
+        <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
       {/* Biography */}

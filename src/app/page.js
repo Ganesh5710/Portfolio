@@ -26,10 +26,10 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Pure scroll listener for scroll spying
+  // Pure scroll listener for scroll spying (completely deterministic, avoids IntersectionObserver load races)
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Trigger offset
+      const scrollPosition = window.scrollY + 250; // Trigger offset
       let currentSection = 'about';
 
       for (const item of NAV_ITEMS) {
@@ -46,7 +46,7 @@ export default function Home() {
       // Force boundary highlights
       if (window.scrollY < 80) {
         currentSection = 'about';
-      } else if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 100) {
+      } else if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 120) {
         currentSection = 'contact';
       }
 
@@ -91,7 +91,7 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
-      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-600'
+      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-650'
     }`}>
       {/* Brittany Chiang style: Subtle, rich blue-teal radial spotlight */}
       {!reducedMotion && (
@@ -137,25 +137,19 @@ export default function Home() {
                 <h2 className={`text-lg sm:text-xl font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
                   Full Stack & AI Developer
                 </h2>
-                <p className="text-sm font-light leading-relaxed max-w-xs text-gray-500 dark:text-slate-450">
+                <p className="text-sm font-light leading-relaxed max-w-xs text-gray-500 dark:text-slate-400">
                   I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
                 </p>
               </div>
 
-              {/* Resume download (styled as clean text arrow link near the top) */}
+              {/* Resume download */}
               <div className="pt-2">
                 <a
                   href="/resume.pdf"
                   download
-                  className={`inline-flex items-baseline gap-1 font-mono text-xs font-semibold hover:text-[var(--color-accent-teal)] transition-colors group/resume outline-none ${
-                    isDark ? 'text-slate-200' : 'text-slate-800'
-                  }`}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] bg-transparent hover:bg-[var(--color-accent-teal-hover)] font-mono text-xs font-bold transition-all focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none"
                 >
-                  <span>View Full Résumé</span>
-                  <ArrowUpRight 
-                    size={14} 
-                    className="inline-block shrink-0 transition-transform group-hover/resume:translate-x-1 group-hover/resume:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
-                  />
+                  <Download size={14} /> Download Resume
                 </a>
               </div>
 
@@ -180,8 +174,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Desktop Navigation Links */}
-              <nav className="hidden lg:flex flex-col gap-1 font-mono text-xs pt-10 select-none">
+              {/* Desktop Navigation Links (Increased text size & spacing to resolve crowding) */}
+              <nav className="hidden lg:flex flex-col gap-1.5 font-mono text-xs pt-12 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -189,19 +183,19 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-2.5 cursor-pointer outline-none"
+                      className="group flex items-center py-3 cursor-pointer outline-none"
                     >
-                      {/* Line expands and highlights on active/hover */}
+                      {/* Line expands and highlights in Teal on active state to match spec */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
                         isActive 
-                          ? 'w-16 bg-slate-950 dark:bg-slate-200' 
-                          : 'w-8 bg-slate-400 dark:bg-slate-650 group-hover:w-16 group-hover:bg-slate-950 dark:group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-950 dark:group-focus-visible:bg-slate-200'
+                          ? 'w-16 bg-[var(--color-accent-teal)]' 
+                          : 'w-8 bg-slate-400 dark:bg-slate-650 group-hover:w-16 group-hover:bg-[var(--color-accent-teal)] group-focus-visible:w-16 group-focus-visible:bg-[var(--color-accent-teal)]'
                       }`} />
                       
-                      <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 ${
+                      <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                         isActive 
-                          ? 'text-slate-950 dark:text-slate-200 font-extrabold' 
-                          : 'text-gray-500 group-hover:text-slate-950 dark:group-hover:text-slate-200 group-focus-visible:text-slate-950 dark:group-focus-visible:text-slate-200'
+                          ? 'text-[var(--color-accent-teal)] font-extrabold' 
+                          : 'text-gray-550 dark:text-slate-500 group-hover:text-[var(--color-accent-teal)] group-focus-visible:text-[var(--color-accent-teal)]'
                       }`}>
                         {item.label}
                       </span>
@@ -245,22 +239,22 @@ export default function Home() {
            * RIGHT COLUMN (Scrollable Content Sections - spacious)
            * ==================================================== */}
           <main className="lg:w-[52%] lg:py-24 flex flex-col relative z-20">
-            <section id="about" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="about" className="pb-24 lg:pb-36 scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="experience" className="pb-24 lg:pb-36 scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="projects" className="pb-24 lg:pb-36 scroll-mt-24">
               <Projects />
             </section>
-            <section id="skills" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="skills" className="pb-24 lg:pb-36 scroll-mt-24">
               <Skills />
             </section>
-            <section id="education" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="education" className="pb-24 lg:pb-36 scroll-mt-24">
               <Education />
             </section>
-            <section id="contact" className="pb-16 lg:pb-28 scroll-mt-24">
+            <section id="contact" className="pb-24 lg:pb-36 scroll-mt-24">
               <Contact />
             </section>
             <Footer />
