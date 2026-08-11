@@ -3,14 +3,14 @@ import React from 'react';
 const About = () => {
   return (
     <div className="space-y-6">
-      {/* Section Title - Visible on Desktop */}
-      <h2 className="text-xs font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
+      {/* Section Title - Increased Font Size */}
+      <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
         <span>01. ABOUT</span>
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
-      {/* Biography */}
-      <div className="text-sm font-sans font-light leading-relaxed space-y-4">
+      {/* Biography - Increased from text-sm to text-base */}
+      <div className="text-base font-sans font-light leading-relaxed space-y-5 text-gray-650 dark:text-slate-400">
         <p>
           I'm a B.Tech CSE student passionate about <span className="font-semibold text-slate-900 dark:text-slate-200">Full Stack Development</span> and AI-powered applications. I build scalable backend architectures, real-time web applications, and autonomous AI chatbots. Currently engineering web features using Python, React, Node.js, and WebSockets.
         </p>

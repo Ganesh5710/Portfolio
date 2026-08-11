@@ -34,36 +34,36 @@ const Experience = () => {
 
   return (
     <div className="space-y-6">
-      {/* Section Title - Visible on Desktop */}
-      <h2 className="text-xs font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
+      {/* Section Title - Increased Font Size */}
+      <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
         <span>02. EXPERIENCE</span>
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
       {/* Experience List */}
-      <div className="space-y-4 group/list">
+      <div className="space-y-6 group/list">
         {EXPERIENCE_DATA.map((exp, index) => (
           <div
             key={index}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-4 p-5 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
+            className={`grid grid-cols-1 md:grid-cols-12 gap-4 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
               isDark 
                 ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
                 : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
             }`}
           >
-            {/* Left Column - Dates (3 cols) */}
-            <div className="md:col-span-3 text-[10px] font-sans text-gray-500 dark:text-slate-500 tracking-wider font-bold pt-1 select-none">
+            {/* Left Column - Dates (Increased to text-xs) */}
+            <div className="md:col-span-3 text-xs font-sans text-gray-500 dark:text-slate-500 tracking-wider font-bold pt-1 select-none">
               {exp.period}
             </div>
 
-            {/* Right Column - Work Details (9 cols) */}
-            <div className="md:col-span-9 space-y-2.5">
+            {/* Right Column - Work Details */}
+            <div className="md:col-span-9 space-y-3">
               <div>
                 <a
                   href={exp.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-baseline gap-1 font-bold text-sm hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
+                  className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
                     isDark ? 'text-slate-200' : 'text-slate-900'
                   }`}
                 >
@@ -71,19 +71,20 @@ const Experience = () => {
                     {exp.role} · <span className="font-medium text-gray-500 dark:text-gray-400">{exp.company}</span>
                   </span>
                   <ArrowUpRight 
-                    size={14} 
+                    size={16} 
                     className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
                   />
                 </a>
               </div>
 
-              <ul className="list-disc pl-4 space-y-1.5 text-xs text-gray-600 dark:text-slate-400 font-sans font-light leading-relaxed">
+              {/* Bullet Points - Increased to text-sm */}
+              <ul className="list-disc pl-4 space-y-2 text-sm text-gray-650 dark:text-slate-400 font-sans font-light leading-relaxed">
                 {exp.bullets.map((bullet, i) => (
                   <li key={i}>{bullet}</li>
                 ))}
               </ul>
 
-              {/* Stack Pills */}
+              {/* Stack Pills (text-xs) */}
               <div className="flex flex-wrap gap-1.5 pt-2 select-none">
                 {exp.stack.map((tech, i) => (
                   <span

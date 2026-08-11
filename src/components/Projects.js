@@ -37,24 +37,24 @@ const Projects = () => {
 
   return (
     <div className="space-y-6">
-      {/* Section Title - Visible on Desktop */}
-      <h2 className="text-xs font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
+      {/* Section Title - Increased Font Size */}
+      <h2 className="text-sm font-mono font-bold text-[var(--color-accent-teal)] uppercase tracking-widest flex items-center gap-4 select-none">
         <span>03. PROJECTS</span>
         <span className="h-px bg-slate-700/40 dark:bg-slate-800/60 flex-grow"></span>
       </h2>
 
       {/* Projects List */}
-      <div className="space-y-4 group/list">
+      <div className="space-y-6 group/list">
         {PROJECTS_DATA.map((proj, index) => (
           <article
             key={index}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-5 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
+            className={`grid grid-cols-1 md:grid-cols-12 gap-6 p-6 rounded-xl border border-transparent transition-all duration-300 group/item group-hover/list:opacity-50 hover:!opacity-100 ${
               isDark 
                 ? 'hover:bg-slate-800/25 hover:border-slate-800/40 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:drop-shadow-lg' 
                 : 'hover:bg-white hover:shadow-lg hover:border-slate-200/50'
             }`}
           >
-            {/* Left Thumbnail (3 cols) using Next.js Image component */}
+            {/* Left Thumbnail (3 cols) */}
             <div className="md:col-span-3 shrink-0 select-none">
               <div className="aspect-[16/9] w-full max-w-[150px] md:max-w-none rounded-lg overflow-hidden border border-slate-750/20 dark:border-slate-800/50 bg-black/10 dark:bg-white/5 relative">
                 <Image 
@@ -70,30 +70,31 @@ const Projects = () => {
             </div>
 
             {/* Right Details (9 cols) */}
-            <div className="md:col-span-9 space-y-2.5">
+            <div className="md:col-span-9 space-y-3">
               <div>
                 <a
                   href={proj.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-baseline gap-1 font-bold text-sm hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
+                  className={`inline-flex items-baseline gap-1 font-bold text-base hover:text-[var(--color-accent-teal)] dark:hover:text-[var(--color-accent-teal)] transition-colors focus:ring-1 focus:ring-[var(--color-accent-teal)] outline-none rounded group/link ${
                     isDark ? 'text-slate-200' : 'text-slate-900'
                   }`}
                 >
                   <span>{proj.title}</span>
                   <ArrowUpRight 
-                    size={14} 
+                    size={16} 
                     className="inline-block shrink-0 transition-transform group-hover/item:translate-x-1 group-hover/item:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1" 
                   />
                 </a>
               </div>
 
-              <p className="text-xs text-gray-600 dark:text-slate-400 font-sans font-light leading-relaxed">
+              {/* Description - Increased to text-sm */}
+              <p className="text-sm text-gray-655 dark:text-slate-400 font-sans font-light leading-relaxed">
                 {proj.description}
               </p>
 
-              {/* Metrics dashboard */}
-              <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2 select-none font-mono text-[9px]">
+              {/* Metrics dashboard - text-xs */}
+              <div className="grid grid-cols-3 gap-2 bg-black/[0.02] dark:bg-white/[0.02] border border-dashed blueprint-border rounded p-2.5 select-none font-mono text-[10px]">
                 {proj.metrics.map((metric, mi) => (
                   <div key={mi} className="space-y-0.5">
                     <div className="text-gray-500 truncate">{metric.label}</div>
@@ -104,7 +105,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Stack Pills (sans-serif) */}
+              {/* Stack Pills (text-xs) */}
               <div className="flex flex-wrap gap-1.5 pt-2 select-none">
                 {proj.tech.map((tech, i) => (
                   <span

@@ -26,10 +26,10 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Pure scroll listener for scroll spying (completely deterministic, avoids IntersectionObserver load races)
+  // Pure scroll listener for scroll spying
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight * 0.35; // Trigger offset (center-upper viewport)
+      const scrollPosition = window.scrollY + window.innerHeight * 0.4; // Trigger offset (center viewport)
       let currentSection = 'about';
 
       for (const item of NAV_ITEMS) {
@@ -91,7 +91,7 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
-      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-55 text-slate-650'
+      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-650'
     }`}>
       {/* Brittany Chiang style: Subtle, rich blue-teal radial spotlight */}
       {!reducedMotion && (
@@ -114,11 +114,11 @@ export default function Home() {
            * ==================================================== */}
           <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[45%] lg:flex-col lg:justify-center select-none shrink-0 z-40">
             {/* Grouped and centered container */}
-            <div className="flex flex-col justify-center py-6 lg:py-0 space-y-6 lg:space-y-10">
+            <div className="flex flex-col justify-center py-6 lg:py-0 space-y-6 lg:space-y-8">
               
               {/* Header system title & theme toggle */}
               <div className="flex items-center justify-between lg:justify-start lg:gap-4 select-none">
-                <span className="font-mono text-xs font-bold text-[var(--color-accent-teal)]">
+                <span className="font-mono text-sm font-bold text-[var(--color-accent-teal)]">
                   GB_SYSTEM_V3.0
                 </span>
                 
@@ -131,15 +131,15 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Bio Details */}
-              <div className="space-y-3">
-                <h1 className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>
+              {/* Bio Details (Increased font size for body matching Brittany Chiang's layout) */}
+              <div className="space-y-4">
+                <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>
                   Ganesh Bathula
                 </h1>
-                <h2 className={`text-lg sm:text-xl font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                <h2 className={`text-xl sm:text-2xl font-semibold tracking-tight ${isDark ? 'text-slate-200' : 'text-slate-850'}`}>
                   Full Stack & AI Developer
                 </h2>
-                <p className="text-sm font-light leading-relaxed max-w-xs text-gray-500 dark:text-slate-455">
+                <p className="text-base font-light leading-relaxed max-w-sm text-gray-500 dark:text-slate-400">
                   I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
                 </p>
               </div>
@@ -149,14 +149,14 @@ export default function Home() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded border border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] bg-transparent hover:bg-[var(--color-accent-teal-hover)] font-mono text-xs font-bold transition-all focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[var(--color-accent-teal)] text-[var(--color-accent-teal)] bg-transparent hover:bg-[var(--color-accent-teal-hover)] font-mono text-sm font-bold transition-all focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none"
                 >
-                  <Download size={14} /> Download Resume
+                  <Download size={15} /> Download Resume
                 </a>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest pt-2 select-none">
+              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest pt-2 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -176,8 +176,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Desktop Navigation Links */}
-              <nav className="hidden lg:flex flex-col gap-1.5 font-mono text-xs pt-4 select-none">
+              {/* Desktop Navigation Links (Increased font size to match reference site) */}
+              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-4 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -185,13 +185,13 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-3 cursor-pointer outline-none"
+                      className="group flex items-center py-3.5 cursor-pointer outline-none"
                     >
                       {/* Line expands and highlights in Teal on active state */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
                         isActive 
-                          ? 'w-16 bg-[var(--color-accent-teal)]' 
-                          : 'w-8 bg-slate-400 dark:bg-slate-650 group-hover:w-16 group-hover:bg-[var(--color-accent-teal)] group-focus-visible:w-16 group-focus-visible:bg-[var(--color-accent-teal)]'
+                          ? 'w-20 bg-[var(--color-accent-teal)]' 
+                          : 'w-10 bg-slate-400 dark:bg-slate-650 group-hover:w-20 group-hover:bg-[var(--color-accent-teal)] group-focus-visible:w-20 group-focus-visible:bg-[var(--color-accent-teal)]'
                       }`} />
                       
                       <span className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
@@ -207,7 +207,7 @@ export default function Home() {
               </nav>
 
               {/* Social handles */}
-              <div className="pt-4 flex items-center gap-5 select-none">
+              <div className="pt-4 flex items-center gap-6 select-none">
                 <a 
                   href="https://github.com/Ganesh5710" 
                   target="_blank" 
@@ -215,48 +215,48 @@ export default function Home() {
                   className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
                   aria-label="Visit Ganesh's GitHub profile"
                 >
-                  <Github size={20} />
+                  <Github size={22} />
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/ganeshb57" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
+                  className="text-gray-550 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
                   aria-label="Visit Ganesh's LinkedIn profile"
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={22} />
                 </a>
                 <a 
                   href="mailto:ganeshbathula20@gmail.com"
-                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
+                  className="text-gray-550 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
                   aria-label="Send email to Ganesh"
                 >
-                  <Mail size={20} />
+                  <Mail size={22} />
                 </a>
               </div>
             </div>
           </header>
 
           {/* ====================================================
-           * RIGHT COLUMN (Full-Screen Sections - about is one page, experience next page)
+           * RIGHT COLUMN (Full-Screen Sections - spacious and centered)
            * ==================================================== */}
           <main className="lg:w-[52%] flex flex-col relative z-20">
-            <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Projects />
             </section>
-            <section id="skills" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="skills" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Skills />
             </section>
-            <section id="education" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="education" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Education />
             </section>
-            <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
+            <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Contact />
             </section>
             <Footer />
