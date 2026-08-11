@@ -136,14 +136,14 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-12"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-10"
                 >
                   📥 Download Resume
                 </a>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-12 mb-8 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-8 mb-6 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col mt-14 space-y-5 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col mt-10 space-y-5 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -231,15 +231,19 @@ export default function Home() {
             <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <About />
             </section>
+            <a> </a>
             <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Experience />
             </section>
+            <a> </a>
             <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Projects />
             </section>
+            <a> </a>
             <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Contact />
             </section>
+            <a> </a>
             <Footer />
           </main>
           
