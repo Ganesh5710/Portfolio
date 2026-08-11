@@ -110,12 +110,8 @@ export default function Home() {
            * ==================================================== */}
           <header className="lg:w-1/2 lg:h-screen lg:sticky lg:top-0 py-12 px-6 lg:px-12 flex flex-col justify-center items-center max-w-xl select-none shrink-0 z-40 relative">
             <div className="w-full flex flex-col items-center text-center my-auto pt-4">
-              {/* 1. Header Info (Tag, Title, Role, Description) */}
+              {/* 1. Header Info (Title, Role, Description) */}
               <div className="flex flex-col items-center text-center w-full">
-                <span className="text-teal-400 font-mono text-xs font-semibold tracking-wider mb-3">
-                  GB_SYSTEM_V3.0
-                </span>
-                
                 <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight mb-2">
                   Ganesh Bathula
                 </h1>
