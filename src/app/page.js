@@ -143,7 +143,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-6 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-12 mb-6 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -164,7 +164,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col gap-2 font-mono text-sm pt-2 select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col space-y-4 mt-14 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -172,7 +172,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-2.5 cursor-pointer outline-none"
+                      className="group flex items-center py-1 cursor-pointer outline-none"
                     >
                       {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
