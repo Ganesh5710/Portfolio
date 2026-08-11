@@ -121,7 +121,7 @@ export default function Home() {
                 </h1>
                 
                 <h2 className="text-lg sm:text-xl font-medium text-slate-200 mb-4">
-                  Full Stack & AI Developer
+                  Full Stack Developer
                 </h2>
                 
                 <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
