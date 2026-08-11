@@ -29,7 +29,7 @@ export default function Home() {
   // Pure scroll listener for scroll spying (completely deterministic, avoids IntersectionObserver load races)
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 250; // Trigger offset
+      const scrollPosition = window.scrollY + window.innerHeight * 0.35; // Trigger offset (center-upper viewport)
       let currentSection = 'about';
 
       for (const item of NAV_ITEMS) {
@@ -91,7 +91,7 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen font-sans antialiased transition-colors duration-250 ${
-      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-50 text-slate-650'
+      isDark ? 'bg-[#0a192f] text-slate-400' : 'bg-slate-55 text-slate-650'
     }`}>
       {/* Brittany Chiang style: Subtle, rich blue-teal radial spotlight */}
       {!reducedMotion && (
@@ -110,10 +110,12 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:gap-4">
           
           {/* ====================================================
-           * LEFT COLUMN (Sticky / Fixed Sidebar on Desktop)
+           * LEFT COLUMN (Sticky & Vertically Centered on Desktop)
            * ==================================================== */}
-          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[45%] lg:flex-col lg:justify-between lg:py-24 select-none shrink-0 z-40">
-            <div className="space-y-6">
+          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[45%] lg:flex-col lg:justify-center select-none shrink-0 z-40">
+            {/* Grouped and centered container */}
+            <div className="flex flex-col justify-center py-6 lg:py-0 space-y-6 lg:space-y-10">
+              
               {/* Header system title & theme toggle */}
               <div className="flex items-center justify-between lg:justify-start lg:gap-4 select-none">
                 <span className="font-mono text-xs font-bold text-[var(--color-accent-teal)]">
@@ -137,13 +139,13 @@ export default function Home() {
                 <h2 className={`text-lg sm:text-xl font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
                   Full Stack & AI Developer
                 </h2>
-                <p className="text-sm font-light leading-relaxed max-w-xs text-gray-500 dark:text-slate-400">
+                <p className="text-sm font-light leading-relaxed max-w-xs text-gray-500 dark:text-slate-455">
                   I build real-time web applications, proctoring platforms, and autonomous AI data pipelines.
                 </p>
               </div>
 
               {/* Resume download */}
-              <div className="pt-2">
+              <div className="pt-1">
                 <a
                   href="/resume.pdf"
                   download
@@ -154,7 +156,7 @@ export default function Home() {
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest pt-4 select-none">
+              <nav className="flex lg:hidden flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest pt-2 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -174,8 +176,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Desktop Navigation Links (Increased text size & spacing to resolve crowding) */}
-              <nav className="hidden lg:flex flex-col gap-1.5 font-mono text-xs pt-12 select-none">
+              {/* Desktop Navigation Links */}
+              <nav className="hidden lg:flex flex-col gap-1.5 font-mono text-xs pt-4 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -185,7 +187,7 @@ export default function Home() {
                       onClick={(e) => handleAnchorClick(e, item.id)}
                       className="group flex items-center py-3 cursor-pointer outline-none"
                     >
-                      {/* Line expands and highlights in Teal on active state to match spec */}
+                      {/* Line expands and highlights in Teal on active state */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
                         isActive 
                           ? 'w-16 bg-[var(--color-accent-teal)]' 
@@ -203,58 +205,58 @@ export default function Home() {
                   );
                 })}
               </nav>
-            </div>
 
-            {/* Social handles bottom row */}
-            <div className="pt-10 lg:pt-0 flex items-center gap-5 select-none">
-              <a 
-                href="https://github.com/Ganesh5710" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                aria-label="Visit Ganesh's GitHub profile"
-              >
-                <Github size={20} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/ganeshb57" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                aria-label="Visit Ganesh's LinkedIn profile"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="mailto:ganeshbathula20@gmail.com"
-                className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
-                aria-label="Send email to Ganesh"
-              >
-                <Mail size={20} />
-              </a>
+              {/* Social handles */}
+              <div className="pt-4 flex items-center gap-5 select-none">
+                <a 
+                  href="https://github.com/Ganesh5710" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
+                  aria-label="Visit Ganesh's GitHub profile"
+                >
+                  <Github size={20} />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/ganeshb57" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
+                  aria-label="Visit Ganesh's LinkedIn profile"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a 
+                  href="mailto:ganeshbathula20@gmail.com"
+                  className="text-gray-500 hover:text-slate-950 dark:hover:text-slate-200 transition-colors focus:ring-2 focus:ring-[var(--color-accent-teal)] outline-none rounded p-1"
+                  aria-label="Send email to Ganesh"
+                >
+                  <Mail size={20} />
+                </a>
+              </div>
             </div>
           </header>
 
           {/* ====================================================
-           * RIGHT COLUMN (Scrollable Content Sections - spacious)
+           * RIGHT COLUMN (Full-Screen Sections - about is one page, experience next page)
            * ==================================================== */}
-          <main className="lg:w-[52%] lg:py-24 flex flex-col relative z-20">
-            <section id="about" className="pb-24 lg:pb-36 scroll-mt-24">
+          <main className="lg:w-[52%] flex flex-col relative z-20">
+            <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <About />
             </section>
-            <section id="experience" className="pb-24 lg:pb-36 scroll-mt-24">
+            <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <Experience />
             </section>
-            <section id="projects" className="pb-24 lg:pb-36 scroll-mt-24">
+            <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <Projects />
             </section>
-            <section id="skills" className="pb-24 lg:pb-36 scroll-mt-24">
+            <section id="skills" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <Skills />
             </section>
-            <section id="education" className="pb-24 lg:pb-36 scroll-mt-24">
+            <section id="education" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <Education />
             </section>
-            <section id="contact" className="pb-24 lg:pb-36 scroll-mt-24">
+            <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-16 lg:py-0 scroll-mt-24">
               <Contact />
             </section>
             <Footer />
