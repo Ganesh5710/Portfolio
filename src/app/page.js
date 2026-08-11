@@ -125,25 +125,26 @@ export default function Home() {
                 <h2 className="text-lg sm:text-xl font-medium text-slate-200 mb-4">
                   Full Stack & AI Developer
                 </h2>
-                
-                <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto mb-6">
+                            <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto mb-6">
                   I build real-time web applications 🚀, proctoring platforms 🛡️, and autonomous AI data pipelines 🤖.
                 </p>
 
-                {/* Download Resume Button */}
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)] mb-10"
-                >
-                  📥 Download Resume
-                </a>
+                {/* Download Resume Button Block */}
+                <div className="mb-10 select-none">
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 border border-teal-400 text-teal-300 font-mono text-xs rounded hover:bg-teal-400/10 transition-all shadow-[0_0_15px_rgba(45,212,191,0.15)]"
+                  >
+                    📥 Download Resume
+                  </a>
+                </div>
               </div>
 
               {/* Mobile Horizontal Nav Menu */}
-              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mt-8 mb-6 select-none">
+              <nav className="flex lg:hidden flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs uppercase tracking-widest mb-6 select-none">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -164,7 +165,7 @@ export default function Home() {
               </nav>
 
               {/* Vertical Scroll-Spy Navigation */}
-              <nav className="hidden lg:flex flex-col mt-10 space-y-5 font-mono text-sm select-none w-fit mx-auto">
+              <nav className="hidden lg:flex flex-col gap-5 font-mono text-sm select-none w-fit mx-auto">
                 {NAV_ITEMS.map((item) => {
                   const isActive = activeSection === item.id;
                   return (
@@ -172,7 +173,7 @@ export default function Home() {
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleAnchorClick(e, item.id)}
-                      className="group flex items-center py-1 cursor-pointer outline-none"
+                      className="group flex items-center py-1.5 cursor-pointer outline-none"
                     >
                       {/* Horizontal line indicator before each section title */}
                       <span className={`mr-4 h-px transition-all duration-300 ${
@@ -193,8 +194,8 @@ export default function Home() {
                 })}
               </nav>
 
-              {/* Social Links (Sitting with generous mt-14 under CONTACT link) */}
-              <div className="flex items-center justify-center gap-5 mt-14 select-none">
+              {/* Social Links Row */}
+              <div className="flex items-center justify-center gap-5 mt-12 select-none">
                 <a 
                   href="https://github.com/Ganesh5710" 
                   target="_blank" 
@@ -231,19 +232,15 @@ export default function Home() {
             <section id="about" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <About />
             </section>
-            <a> </a>
             <section id="experience" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Experience />
             </section>
-            <a> </a>
             <section id="projects" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Projects />
             </section>
-            <a> </a>
             <section id="contact" className="min-h-[85vh] lg:min-h-screen flex flex-col justify-center py-20 lg:py-0 scroll-mt-24">
               <Contact />
             </section>
-            <a> </a>
             <Footer />
           </main>
           
