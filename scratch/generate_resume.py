@@ -147,7 +147,7 @@ def build_pdf():
     header_right = [
         Paragraph("<a href='mailto:ganeshbathula20@gmail.com'><font color='#2563eb'><u>ganeshbathula20@gmail.com</u></font></a>", contact_style),
         Paragraph("<a href='tel:+917981877584'><font color='#2563eb'><u>+91 7981877584</u></font></a>", contact_style),
-        Paragraph("<a href='https://ganeshb-portfolio.vercel.app/'><font color='#2563eb'><u>Portfolio</u></font></a>", contact_style),
+        Paragraph("<a href='https://ganeshb-portfolio.vercel.app/'><font color='#2563eb'><u>portfolio</u></font></a>", contact_style),
         Paragraph("<a href='https://github.com/Ganesh5710'><font color='#2563eb'><u>Github.com</u></font></a>", contact_style),
         Paragraph("<a href='https://www.linkedin.com/in/ganeshb57'><font color='#2563eb'><u>linkedin.com</u></font></a>", contact_style),
     ]
@@ -187,7 +187,7 @@ def build_pdf():
     left_flowables.append(Paragraph("&bull; Architected and shipped Skillbrix, a full-stack online examination portal, engineering real-time proctoring telemetry over WebSockets to flag candidate integrity signals live.", bullet_style))
     left_flowables.append(Paragraph("&bull; Designed customized automated grading models with negative-marking logic to streamline evaluation for large-scale assessments.", bullet_style))
     left_flowables.append(Paragraph("&bull; Built a high-throughput bulk-import pipeline enabling instructors to validate and upload 2,000+ assessment questions from Excel/CSV templates in seconds.", bullet_style))
-    left_flowables.append(Paragraph("&bull; Engineered a premium, fully responsive interface featuring a 3D perspective dashboard with custom mouse-gaze tilt interactions using React (Vite), Node.js, Express, PostgreSQL, and Tailwind CSS.", bullet_style))
+    left_flowables.append(Paragraph("&bull; Engineered a premium, fully responsive interface featuring a 3D perspective dashboard with custom mouse-gaze tilt interactions using React , PostgreSQL, and Tailwind CSS.", bullet_style))
     left_flowables.append(Spacer(1, 8))
     
     # Exp 2
@@ -206,7 +206,7 @@ def build_pdf():
     left_flowables.append(Spacer(1, 6))
     
     left_flowables.append(Paragraph("Frameworks & Libraries", skills_heading_style))
-    left_flowables.append(Paragraph("React, Node.js, Express, Tailwind CSS, Pandas, NumPy", skills_body_style))
+    left_flowables.append(Paragraph("React, Tailwind CSS, Pandas, NumPy", skills_body_style))
     left_flowables.append(Spacer(1, 6))
     
     left_flowables.append(Paragraph("Tools & Platforms", skills_heading_style))
@@ -221,7 +221,7 @@ def build_pdf():
     # Project 1
     right_flowables.append(Paragraph("Skillbrix &mdash; Online Exam Portal", project_title_style))
     right_flowables.append(Spacer(1, 2))
-    right_flowables.append(Paragraph("Full-stack exam platform with automated grading, negative marking, and real-time evaluations at scale &mdash; including a live proctoring center streaming WebSocket telemetry and a bulk-import pipeline validating 2,000+ questions from Excel/CSV in seconds. Built with React (Vite), Node.js, Express, PostgreSQL & Tailwind CSS.", project_desc_style))
+    right_flowables.append(Paragraph("Full-stack exam platform with automated grading, negative marking, and real-time evaluations at scale &mdash; including a live proctoring center streaming WebSocket telemetry and a bulk-import pipeline validating 2,000+ questions from Excel/CSV in seconds. Built with React, PostgreSQL & Tailwind CSS.", project_desc_style))
     right_flowables.append(Spacer(1, 3))
     right_flowables.append(Paragraph("<a href='https://github.com/Ganesh5710/Skillbrix'><font color='#2563eb'><u>GitHub</u></font></a> - <a href='https://skillbrix-exam.vercel.app/'><font color='#2563eb'><u>LiveDemo</u></font></a>", date_style))
     right_flowables.append(Spacer(1, 8))
